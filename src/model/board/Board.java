@@ -42,7 +42,7 @@ public abstract class Board {
 	}
 	
 	
-	public void initialize() {
+	public void initialize() { //TODO link levels info
 		for (int x = 0; x < SIZE; x++) {
 			for (int y = 0; y < SIZE; y++) {
 				g[y][x] = new Cell();
@@ -50,7 +50,9 @@ public abstract class Board {
 		}
 		
 		setContents();
-		
+		/*
+		 * Update info
+		 * */
 		Level level = new LevelHero(1);
 		Fighter fighter = new FighterBase(level);
 		Hero hero = new Hero(fighter);
@@ -89,8 +91,8 @@ public abstract class Board {
 		}
 
 	}
-	private void cleanFog(Point p){
-		for (int i = p.y-1; i <= p.y+1; i++) {
+	private void cleanFog(Point p){ //TODO tip: we could have fog and heavy fog(two or 3 movements to be removed) 
+		for (int i = p.y-1; i <= p.y+1; i++) { //just usefull for one level (ideally level 2)
 			for (int j = p.x-1; j <= p.x+1 ; j++) {
 				if (i>=0 && i<SIZE && j>=0 && j<SIZE) {
 					if (g[i][j].hasFog()) {
