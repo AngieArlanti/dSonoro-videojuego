@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import sound.Sound;
 import model.Game;
 import model.board.level.GameLevel1;
 import model.board.level.GameLevel2;
@@ -33,6 +34,7 @@ public class MenuDemo {
 	public static void main(String[] args) {
 		MenuDemo swingControlDemo = new MenuDemo();
 		swingControlDemo.showButtonDemo();
+		Sound.playMenu();
 	}
 
 	private void prepareGUI() {

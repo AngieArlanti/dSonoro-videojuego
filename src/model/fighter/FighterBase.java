@@ -111,6 +111,7 @@ public class FighterBase implements Fighter {
 
 	@Override
 	public void stronger(int value) {
+		
 		strength+=value;		
 	}
 	
