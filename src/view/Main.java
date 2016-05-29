@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import model.Game;
 import model.board.Move;
 import model.board.level.GameLevel1;
+import model.board.level.Levels;
 
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -17,7 +18,7 @@ public class Main extends JFrame {
 	private Game game;
 	private MainPanel mainPanel;
 	
-	public Main(Game game) {
+	public Main(Game game, Levels level) {
 		super("My Desktop Dungeon");
 		
 		this.game = game;
@@ -26,7 +27,7 @@ public class Main extends JFrame {
 	    this.setResizable(true);
 	    Toolkit toolkit = getToolkit();
 	    Dimension size = toolkit.getScreenSize();
-	    this.setContentPane(mainPanel = new MainPanel(game));
+	    this.setContentPane(mainPanel = new MainPanel(game, level));
 	    this.setSize(mainPanel.getWidth(), mainPanel.getHeight() + 40);
 	    this.setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
 	    
@@ -57,7 +58,7 @@ public class Main extends JFrame {
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
 		
 		
-		Main mainWindow = new Main(new Game(GameLevel1.class));
+		Main mainWindow = new Main(new Game(GameLevel1.class), Levels.HELL);
 		mainWindow.setVisible(true);
 		
 	}

@@ -18,6 +18,7 @@ import model.Game;
 import model.board.level.GameLevel1;
 import model.board.level.GameLevel2;
 import model.board.level.GameLevel3;
+import model.board.level.Levels;
 
 public class MenuDemo {
 
@@ -36,7 +37,7 @@ public class MenuDemo {
 	}
 
 	private void prepareGUI() {
-		mainFrame = new JFrame("Java Swing Examples");
+		mainFrame = new JFrame("Menu principal");
 		mainFrame.setSize(400, 400);
 		mainFrame.setLayout(new GridLayout(3, 1));
 		mainFrame.addWindowListener(new WindowAdapter() {
@@ -70,7 +71,7 @@ public class MenuDemo {
 
 	private void showButtonDemo() {
 
-		headerLabel.setText("Nombre del juego");
+		headerLabel.setText("Commedia");
 
 		// resources folder should be inside SWING folder.
 		ImageIcon icon = createImageIcon("/resources/java_icon.png", "Java");
@@ -84,7 +85,7 @@ public class MenuDemo {
 		level1Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Main mainWindow = new Main(new Game(GameLevel1.class));
+					Main mainWindow = new Main(new Game(GameLevel1.class), Levels.HELL);
 					mainWindow.setVisible(true);
 					mainFrame.setVisible(false);
 				} catch (InstantiationException e1) {
@@ -100,7 +101,7 @@ public class MenuDemo {
 		level2Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {//TODO blocked until level 1 is completed
-					Main mainWindow = new Main(new Game(GameLevel2.class));
+					Main mainWindow = new Main(new Game(GameLevel2.class), Levels.PURGATORY);
 					mainWindow.setVisible(true);
 					mainFrame.setVisible(false);
 				} catch (InstantiationException e1) {
@@ -114,7 +115,7 @@ public class MenuDemo {
 		level3Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {//TODO blocked until level 2 is completed
-					Main mainWindow = new Main(new Game(GameLevel3.class));
+					Main mainWindow = new Main(new Game(GameLevel3.class), Levels.HEAVEN);
 					mainWindow.setVisible(true);
 					mainFrame.setVisible(false);
 				} catch (InstantiationException e1) {

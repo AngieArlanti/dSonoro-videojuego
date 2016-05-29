@@ -7,6 +7,7 @@ import java.util.Map;
 
 import model.board.Cell;
 import model.board.Content;
+import model.board.level.Levels;
 import model.element.*;
 import model.fighter.*;
 import model.fighter.opponent.*;
@@ -15,27 +16,68 @@ public class ImageManager {
 	
 	private Map<String, Image> images = new HashMap<String, Image>();
 	
-	public ImageManager() {
-		initImages();
+	public ImageManager(Levels level) {
+		initImages(level);
 	}
 
-	public void initImages() {
+	public void initImages(Levels level) {
 		try{
-			images.put(Hero.class.getName(), ImageUtils.loadImage("resources/heroBase.png"));
-			images.put(Cell.class.getName(), ImageUtils.loadImage("resources/floor.png"));
-			images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
-			images.put(Golem.class.getName(), ImageUtils.loadImage("resources/golem.png"));
-			images.put(Blood.class.getName(), ImageUtils.loadImage("resources/blood.png"));
-			images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/goblin.png"));
-			images.put(Snake.class.getName(), ImageUtils.loadImage("resources/Serpent.png"));
-			images.put(Sword.class.getName(), ImageUtils.loadImage("resources/sword.png"));
-			images.put(Wall.class.getName(), ImageUtils.loadImage("resources/wall.png"));
-			images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
-			images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/healthPotion.png"));
-			images.put(StrengthBonus.class.getName(), ImageUtils.loadImage("resources/attackbonus.png"));
-			images.put(HeroArmor.class.getName(), ImageUtils.loadImage("resources/heroArmor.png"));
-			images.put(HeroSword.class.getName(), ImageUtils.loadImage("resources/heroArmor.png"));
-			images.put(Armor.class.getName(), ImageUtils.loadImage("resources/armor.png"));
+			switch (level) {
+			case HELL:
+				images.put(Hero.class.getName(), ImageUtils.loadImage("resources/heroBase.png"));
+				images.put(Cell.class.getName(), ImageUtils.loadImage("resources/hell/floor.png"));
+				images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
+				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/golem.png"));
+				images.put(Blood.class.getName(), ImageUtils.loadImage("resources/blood.png"));
+				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/goblin.png"));
+				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/Serpent.png"));
+				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/sword.png"));
+				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/hell/wall.png"));
+				images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
+				images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/healthPotion.png"));
+				images.put(StrengthBonus.class.getName(), ImageUtils.loadImage("resources/attackbonus.png"));
+				images.put(HeroArmor.class.getName(), ImageUtils.loadImage("resources/heroArmor.png"));
+				images.put(HeroSword.class.getName(), ImageUtils.loadImage("resources/heroArmor.png"));
+				images.put(Armor.class.getName(), ImageUtils.loadImage("resources/armor.png"));
+				break;
+			case PURGATORY:
+				images.put(Hero.class.getName(), ImageUtils.loadImage("resources/heroBase.png"));
+				images.put(Cell.class.getName(), ImageUtils.loadImage("resources/purgatory/floor.png"));
+				images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
+				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/golem.png"));
+				images.put(Blood.class.getName(), ImageUtils.loadImage("resources/blood.png"));
+				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/goblin.png"));
+				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/Serpent.png"));
+				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/sword.png"));
+				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/purgatory/wall.png"));
+				images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
+				images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/healthPotion.png"));
+				images.put(StrengthBonus.class.getName(), ImageUtils.loadImage("resources/attackbonus.png"));
+				images.put(HeroArmor.class.getName(), ImageUtils.loadImage("resources/heroArmor.png"));
+				images.put(HeroSword.class.getName(), ImageUtils.loadImage("resources/heroArmor.png"));
+				images.put(Armor.class.getName(), ImageUtils.loadImage("resources/armor.png"));				
+				break;
+			case HEAVEN:
+				images.put(Hero.class.getName(), ImageUtils.loadImage("resources/heroBase.png"));
+				images.put(Cell.class.getName(), ImageUtils.loadImage("resources/heaven/floor.png"));
+				images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
+				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/golem.png"));
+				images.put(Blood.class.getName(), ImageUtils.loadImage("resources/blood.png"));
+				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/goblin.png"));
+				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/Serpent.png"));
+				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/sword.png"));
+				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/heaven/wall.png"));
+				images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
+				images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/healthPotion.png"));
+				images.put(StrengthBonus.class.getName(), ImageUtils.loadImage("resources/attackbonus.png"));
+				images.put(HeroArmor.class.getName(), ImageUtils.loadImage("resources/heroArmor.png"));
+				images.put(HeroSword.class.getName(), ImageUtils.loadImage("resources/heroArmor.png"));
+				images.put(Armor.class.getName(), ImageUtils.loadImage("resources/armor.png"));
+
+				break;
+
+			}
+			
 		}
 		catch(Exception e){
 			e.printStackTrace();
