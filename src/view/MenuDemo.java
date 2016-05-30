@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import model.Game;
-import model.board.Board;
 import model.board.level.GameLevel1;
 import model.board.level.GameLevel2;
 import model.board.level.GameLevel3;
@@ -127,11 +126,14 @@ public class MenuDemo {
 			public void mouseEntered(MouseEvent arg0) {
 				SoundManager.play(hoverClip);
 				
+				
 			}			
 			
 			@Override
 			public void mouseExited(MouseEvent arg0) {
+				
 				SoundManager.stop(hoverClip);
+				
 				
 			}
 			

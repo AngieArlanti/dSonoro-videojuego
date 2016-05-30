@@ -9,11 +9,10 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.UnsupportedAudioFileException;
-
-import com.sun.org.apache.bcel.internal.util.ClassPath;
 
 
 public class SoundManager {
@@ -44,14 +43,27 @@ public class SoundManager {
 	
 	public static void stopSounds(){
 		for(Clip clip : clips.values()){
+			
 			clip.stop();
 		}
 	}
 
 	
+	public static void volumeDown(ClipName name){
+		Clip clip = getClip(name);
+		FloatControl volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+		volume.setValue(-10);
+	}
 	
+	public static void volumeUp(ClipName name){
+		Clip clip = getClip(name);
+		FloatControl volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+		volume.setValue(0);
+	}
 
-	
+	private static Clip getClip(ClipName name){
+		return clips.get(name);
+	}
 	private static void addClip(ClipName name, Clip clip) {
 		if(clip!=null){
 			clips.put(name,clip);
