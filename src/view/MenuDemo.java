@@ -21,8 +21,12 @@ import model.board.Board;
 import model.board.level.GameLevel1;
 import model.board.level.GameLevel2;
 import model.board.level.GameLevel3;
+
 import sound.ClipName;
 import sound.SoundManager;
+
+import model.board.level.Levels;
+
 
 public class MenuDemo {
 
@@ -42,7 +46,7 @@ public class MenuDemo {
 	}
 
 	private void prepareGUI() {
-		mainFrame = new JFrame("Java Swing Examples");
+		mainFrame = new JFrame("Menu principal");
 		mainFrame.setSize(400, 400);
 		mainFrame.setLayout(new GridLayout(3, 1));
 		mainFrame.addWindowListener(new WindowAdapter() {
@@ -77,7 +81,7 @@ public class MenuDemo {
 
 	private void showButtonDemo() {
 
-		headerLabel.setText("Nombre del juego");
+		headerLabel.setText("Commedia");
 
 		// resources folder should be inside SWING folder.
 		ImageIcon icon = createImageIcon("/resources/java_icon.png", "Java");
@@ -87,10 +91,13 @@ public class MenuDemo {
 		JButton level3Button = new JButton("Level 3", icon);
 		JButton exitButton = new JButton("Salir", icon);
 		level3Button.setHorizontalTextPosition(SwingConstants.LEFT);
+
 		
-		level1Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL1,GameLevel1.class));
-		level2Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL2,GameLevel2.class));
-		level3Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL3,GameLevel3.class));
+		level1Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL1,GameLevel1.class,Levels.HELL));
+		level2Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL2,GameLevel2.class,Levels.PURGATORY));
+		level3Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL3,GameLevel3.class,Levels.HEAVEN));
+
+
 
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -112,7 +119,7 @@ public class MenuDemo {
 	}
 	
 	
-	private MouseListener getMouseListener(final ClipName hoverClip, final Class<?> level ){
+	private MouseListener getMouseListener(final ClipName hoverClip, final Class<?> levelClass , final Levels level ){
 		
 		MouseListener listener = new MouseListener() {
 			
@@ -131,7 +138,7 @@ public class MenuDemo {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				try {
-					Main mainWindow = new Main(new Game(level));
+					Main mainWindow = new Main(new Game(levelClass),level);
 					mainWindow.setVisible(true);
 					mainFrame.setVisible(false);
 					SoundManager.stopSounds();

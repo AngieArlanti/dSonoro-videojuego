@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 
 import model.Game;
+import model.board.level.Levels;
 import view.panel.GamePanel;
 import view.panel.InfoPanel;
 
@@ -23,8 +24,8 @@ public class MainPanel extends JPanel{
 	
 	private int height;
 	
-	public MainPanel(Game game){
-		this.imgManager = new ImageManager();
+	public MainPanel(Game game, Levels level){
+		this.imgManager = new ImageManager(level);
 		this.height = CELL_SIZE * game.getBoardSize();
 		setLayout(null);
 		add(infoPanel = new InfoPanel(game, imgManager, INFO_WIDTH, height));
