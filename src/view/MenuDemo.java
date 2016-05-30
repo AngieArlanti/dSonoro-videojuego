@@ -4,6 +4,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -14,11 +16,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import sound.Sound;
 import model.Game;
+import model.board.Board;
 import model.board.level.GameLevel1;
 import model.board.level.GameLevel2;
 import model.board.level.GameLevel3;
+import sound.ClipName;
+import sound.SoundManager;
 
 public class MenuDemo {
 
@@ -34,7 +38,7 @@ public class MenuDemo {
 	public static void main(String[] args) {
 		MenuDemo swingControlDemo = new MenuDemo();
 		swingControlDemo.showButtonDemo();
-		Sound.playMenu();
+		SoundManager.play(ClipName.MENU);
 	}
 
 	private void prepareGUI() {
@@ -58,6 +62,7 @@ public class MenuDemo {
 		mainFrame.add(controlPanel);
 		mainFrame.add(statusLabel);
 		mainFrame.setVisible(true);
+		SoundManager.loadRoots();
 	}
 
 	private static ImageIcon createImageIcon(String path, String description) {
@@ -83,49 +88,41 @@ public class MenuDemo {
 		JButton exitButton = new JButton("Salir", icon);
 		level3Button.setHorizontalTextPosition(SwingConstants.LEFT);
 
-		level1Button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Main mainWindow = new Main(new Game(GameLevel1.class));
-					mainWindow.setVisible(true);
-					mainFrame.setVisible(false);
-				} catch (InstantiationException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IllegalAccessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		level2Button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {//TODO blocked until level 1 is completed
-					Main mainWindow = new Main(new Game(GameLevel2.class));
-					mainWindow.setVisible(true);
-					mainFrame.setVisible(false);
-				} catch (InstantiationException e1) {
-					e1.printStackTrace();
-				} catch (IllegalAccessException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		level3Button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {//TODO blocked until level 2 is completed
-					Main mainWindow = new Main(new Game(GameLevel3.class));
-					mainWindow.setVisible(true);
-					mainFrame.setVisible(false);
-				} catch (InstantiationException e1) {
-					e1.printStackTrace();
-				} catch (IllegalAccessException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
+		
+		
+		level1Button.addMouseListener(getMouseListener(ClipName.LEVEL1,GameLevel1.class));
+		level2Button.addMouseListener(getMouseListener(ClipName.LEVEL2,GameLevel2.class));
+		level3Button.addMouseListener(getMouseListener(ClipName.LEVEL3,GameLevel3.class));
+		
+		
+//		level2Button.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				try {//TODO blocked until level 1 is completed
+//					Main mainWindow = new Main(new Game(GameLevel2.class));
+//					mainWindow.setVisible(true);
+//					mainFrame.setVisible(false);
+//				} catch (InstantiationException e1) {
+//					e1.printStackTrace();
+//				} catch (IllegalAccessException e1) {
+//					e1.printStackTrace();
+//				}
+//			}
+//			
+//		});
+//
+//		level3Button.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				try {//TODO blocked until level 2 is completed
+//					Main mainWindow = new Main(new Game(GameLevel3.class));
+//					mainWindow.setVisible(true);
+//					mainFrame.setVisible(false);
+//				} catch (InstantiationException e1) {
+//					e1.printStackTrace();
+//				} catch (IllegalAccessException e1) {
+//					e1.printStackTrace();
+//				}
+//			}
+//		});
 
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -145,4 +142,57 @@ public class MenuDemo {
 
 		mainFrame.setVisible(true);
 	}
+	
+	
+	private MouseListener getMouseListener(final ClipName hoverClip, final Class<?> level ){
+		
+		MouseListener listener = new MouseListener() {
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				SoundManager.play(hoverClip);
+				
+			}			
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				SoundManager.stop(hoverClip);
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					Main mainWindow = new Main(new Game(level));
+					mainWindow.setVisible(true);
+					mainFrame.setVisible(false);
+					SoundManager.stopSounds();
+				} catch (InstantiationException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IllegalAccessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		}; 
+		
+		return listener;
+	}
+	
+
 }
