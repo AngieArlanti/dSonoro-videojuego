@@ -95,20 +95,8 @@ public class MenuDemo {
 		level1Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL1,GameLevel1.class,Levels.HELL));
 		level2Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL2,GameLevel2.class,Levels.PURGATORY));
 		level3Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL3,GameLevel3.class,Levels.HEAVEN));
-
-
-
-		exitButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-				/*
-				 * TODO View de creditos: que aparezca el personaje en la
-				 * pantalla apagada como el juego y cuando se va moviendo van
-				 * descubriendo los creditos.
-				 */
-			}
-		});
-
+		exitButton.addMouseListener(getMouseListener(ClipName.BUTTON_EXIT,null,null));
+		
 		controlPanel.add(level1Button);
 		controlPanel.add(level2Button);
 		controlPanel.add(level3Button);
@@ -118,13 +106,13 @@ public class MenuDemo {
 	}
 	
 	
-	private MouseListener getMouseListener(final ClipName hoverClip, final Class<?> levelClass , final Levels level ){
+	private MouseListener getMouseListener(final ClipName clip, final Class<?> levelClass , final Levels level ){
 		
 		MouseListener listener = new MouseListener() {
 			
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				SoundManager.play(hoverClip);
+				SoundManager.play(clip);
 				
 				
 			}			
@@ -132,25 +120,38 @@ public class MenuDemo {
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				
-				SoundManager.stop(hoverClip);
-				
-				
+				SoundManager.stop(clip);
+			
 			}
 			
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				try {
-					Main mainWindow = new Main(new Game(levelClass),level);
-					mainWindow.setVisible(true);
-					mainFrame.setVisible(false);
-					SoundManager.stopSounds();
-				} catch (InstantiationException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IllegalAccessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				if(clip != ClipName.BUTTON_EXIT){
+					try {
+						Main mainWindow = new Main(new Game(levelClass),level);
+						mainWindow.setVisible(true);
+						mainFrame.setVisible(false);
+						SoundManager.stopSounds();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
+				else{
+					System.exit(0);
+					/*
+					 * TODO View de creditos: que aparezca el personaje en la
+					 * pantalla apagada como el juego y cuando se va moviendo van
+					 * descubriendo los creditos.
+					 */
+					
+				}
+					
+				
+				
 				
 			}
 

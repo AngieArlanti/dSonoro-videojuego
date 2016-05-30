@@ -108,6 +108,7 @@ public class SoundManager {
 		roots.put(ClipName.BUTTON_LEVEL1, "Nivel1-Boton.wav");
 		roots.put(ClipName.BUTTON_LEVEL2, "Nivel2-Boton.wav");
 		roots.put(ClipName.BUTTON_LEVEL3, "Nivel3-Boton.wav");
+		roots.put(ClipName.BUTTON_EXIT, "Salir-Boton.wav");
 	}
 	
 	private static String getRoot(ClipName name){
