@@ -1,5 +1,5 @@
 package sound;
 
 public enum ClipName {
-	MENU,LEVEL1,LEVEL2,LEVEL3
+	MENU,BUTTON_LEVEL1,BUTTON_LEVEL2,BUTTON_LEVEL3
 }

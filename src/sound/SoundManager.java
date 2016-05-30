@@ -16,26 +16,56 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import com.sun.org.apache.bcel.internal.util.ClassPath;
 
 
-
-
 public class SoundManager {
 
 	private static Mixer mixer;
 	private static HashMap<ClipName, Clip> clips = new HashMap<ClipName,Clip>();
 	private static HashMap<ClipName, String> roots;
 	
-	public static void loadRoots(){
-		roots = new HashMap<ClipName,String>();
-		roots.put(ClipName.MENU, "Menu.wav");
-		roots.put(ClipName.LEVEL1, "Nivel1-Boton.wav");
-		roots.put(ClipName.LEVEL2, "Nivel2-Boton.wav");
-		roots.put(ClipName.LEVEL3, "Nivel3-Boton.wav");
+	
+	public static void play(ClipName name){
+		
+		Clip clip = getClip(getRoot(name));
+		
+		addClip(name,clip);
+		
+		if(name==ClipName.MENU){
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		}else{
+			clip.start();
+		}
+				
 	}
 	
-	private static String getRoot(ClipName name){
-		return roots.get(name);
+	public static void stop(ClipName level1) {
+		clips.get(level1).stop();
+		
 	}
 	
+	public static void stopSounds(){
+		for(Clip clip : clips.values()){
+			clip.stop();
+		}
+	}
+
+	
+	
+
+	
+	private static void addClip(ClipName name, Clip clip) {
+		if(clip!=null){
+			clips.put(name,clip);
+		}else{
+			try {
+				throw new FileNotFoundException();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
 	private static Clip getClip(String path){
 		Clip clip=null;
 		Mixer.Info[] mixInfos = AudioSystem.getMixerInfo();
@@ -59,46 +89,17 @@ public class SoundManager {
 		return clip;
 	}
 	
-	public static void play(ClipName name){
-		
-		Clip clip = getClip(getRoot(name));
-		
-		addClip(name,clip);
-		
-		if(name==ClipName.MENU){
-			clip.loop(Clip.LOOP_CONTINUOUSLY);
-		}else{
-			clip.start();
-		}
-				
+	
+	public static void loadRoots(){
+		roots = new HashMap<ClipName,String>();
+		roots.put(ClipName.MENU, "Menu.wav");
+		roots.put(ClipName.BUTTON_LEVEL1, "Nivel1-Boton.wav");
+		roots.put(ClipName.BUTTON_LEVEL2, "Nivel2-Boton.wav");
+		roots.put(ClipName.BUTTON_LEVEL3, "Nivel3-Boton.wav");
 	}
 	
-	
-	private static void addClip(ClipName name, Clip clip) {
-		if(clip!=null){
-			clips.put(name,clip);
-		}else{
-			try {
-				throw new FileNotFoundException();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-	}
-
-	
-	
-	public static void stopSounds(){
-		for(Clip clip : clips.values()){
-			clip.stop();
-		}
-	}
-
-	public static void stop(ClipName level1) {
-		clips.get(level1).stop();
-		
+	private static String getRoot(ClipName name){
+		return roots.get(name);
 	}
 	
 }

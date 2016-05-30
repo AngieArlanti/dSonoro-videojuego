@@ -87,42 +87,10 @@ public class MenuDemo {
 		JButton level3Button = new JButton("Level 3", icon);
 		JButton exitButton = new JButton("Salir", icon);
 		level3Button.setHorizontalTextPosition(SwingConstants.LEFT);
-
 		
-		
-		level1Button.addMouseListener(getMouseListener(ClipName.LEVEL1,GameLevel1.class));
-		level2Button.addMouseListener(getMouseListener(ClipName.LEVEL2,GameLevel2.class));
-		level3Button.addMouseListener(getMouseListener(ClipName.LEVEL3,GameLevel3.class));
-		
-		
-//		level2Button.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				try {//TODO blocked until level 1 is completed
-//					Main mainWindow = new Main(new Game(GameLevel2.class));
-//					mainWindow.setVisible(true);
-//					mainFrame.setVisible(false);
-//				} catch (InstantiationException e1) {
-//					e1.printStackTrace();
-//				} catch (IllegalAccessException e1) {
-//					e1.printStackTrace();
-//				}
-//			}
-//			
-//		});
-//
-//		level3Button.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				try {//TODO blocked until level 2 is completed
-//					Main mainWindow = new Main(new Game(GameLevel3.class));
-//					mainWindow.setVisible(true);
-//					mainFrame.setVisible(false);
-//				} catch (InstantiationException e1) {
-//					e1.printStackTrace();
-//				} catch (IllegalAccessException e1) {
-//					e1.printStackTrace();
-//				}
-//			}
-//		});
+		level1Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL1,GameLevel1.class));
+		level2Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL2,GameLevel2.class));
+		level3Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL3,GameLevel3.class));
 
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
