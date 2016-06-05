@@ -30,6 +30,7 @@ public class Main extends JFrame {
 	    this.setContentPane(mainPanel = new MainPanel(game, level));
 	    this.setSize(mainPanel.getWidth(), mainPanel.getHeight() + 40);
 	    this.setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
+	    this.setResizable(false);
 	    
 	    addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
