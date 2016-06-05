@@ -12,7 +12,7 @@ import view.panel.InfoPanel;
 public class MainPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 
-	private static final int CELL_SIZE = 40;
+	private static final int CELL_SIZE = 50;
 	private static final int INFO_WIDTH = 200;
 	
 	/**
