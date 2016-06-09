@@ -44,35 +44,37 @@ public class ImageManager {
 				images.put(Hero.class.getName(), ImageUtils.loadImage("resources/person/guy/guy2.gif"));
 				images.put(Cell.class.getName(), ImageUtils.loadImage("resources/purgatory/floor.png"));
 				images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
-				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/golem.png"));
+				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/purgatory/enemies/ira.gif"));
 				images.put(Blood.class.getName(), ImageUtils.loadImage("resources/items/EchoHerbs.gif"));
-				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/goblin.png"));
-				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/Serpent.png"));
-				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/sword.png"));
-				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/purgatory/wall.png"));
+				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/purgatory/enemies/avaricia.gif"));
+				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/purgatory/enemies/gula.gif"));
+				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));
+				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/purgatory/wall.gif"));
 				images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
 				images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/items/Hi-Potion.gif"));
 				images.put(StrengthBonus.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));
 				images.put(HeroArmor.class.getName(), ImageUtils.loadImage("resources/person/guy/power2.gif"));
 				images.put(HeroSword.class.getName(), ImageUtils.loadImage("resources/person/guy/power2.gif"));
-				images.put(Armor.class.getName(), ImageUtils.loadImage("resources/armor.png"));				
+				images.put(Armor.class.getName(), ImageUtils.loadImage("resources/items/MythrilShield.gif"));			
 				break;
 			case HEAVEN:
 				images.put(Hero.class.getName(), ImageUtils.loadImage("resources/person/guy/guy3.gif"));
 				images.put(Cell.class.getName(), ImageUtils.loadImage("resources/heaven/floor.png"));
 				images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
-				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/golem.png"));
+				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/heaven/enemies/Dragoon.gif"));
 				images.put(Blood.class.getName(), ImageUtils.loadImage("resources/items/EchoHerbs.gif"));
-				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/goblin.png"));
-				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/Serpent.png"));
-				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/sword.png"));
-				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/heaven/wall.png"));
+				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/heaven/enemies/Rapha.gif"));
+				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/heaven/enemies/DarkKnight.gif"));
+				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));
+				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/heaven/wall.gif"));
 				images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
 				images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/items/Hi-Potion.gif"));
 				images.put(StrengthBonus.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));
 				images.put(HeroArmor.class.getName(), ImageUtils.loadImage("resources/person/guy/power3.gif"));
 				images.put(HeroSword.class.getName(), ImageUtils.loadImage("resources/person/guy/power3.gif"));
 				images.put(Armor.class.getName(), ImageUtils.loadImage("resources/armor.png"));
+				images.put(Victim.class.getName(), ImageUtils.loadImage("resources/heaven/victim/victim1.gif"));
+				images.put(Person.class.getName(), ImageUtils.loadImage("resources/heaven/victim/victimA.gif"));
 
 				break;
 
