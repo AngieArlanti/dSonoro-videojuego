@@ -36,7 +36,7 @@ public class Main extends JFrame {
 			public void keyPressed(KeyEvent e) {
 				switch ( e.getKeyCode() ) {
 				case KeyEvent.VK_UP:
-					Main.this.game.onMove(Move.UP); break;
+					Main.this.game.onMove(Move.UP);	break;
 				case KeyEvent.VK_DOWN:
 					Main.this.game.onMove(Move.DOWN); break;
 				case KeyEvent.VK_LEFT:

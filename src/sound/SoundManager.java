@@ -28,7 +28,7 @@ public class SoundManager {
 		
 		addClip(name,clip);
 		
-		if(name==ClipName.MENU){
+		if(name==ClipName.MENU||name==ClipName.MUSIC_LEVEL1||name==ClipName.MUSIC_LEVEL2||name==ClipName.MUSIC_LEVEL3){
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
 		}else{
 			clip.start();
@@ -109,6 +109,17 @@ public class SoundManager {
 		roots.put(ClipName.BUTTON_LEVEL2, "Nivel2-Boton.wav");
 		roots.put(ClipName.BUTTON_LEVEL3, "Nivel3-Boton.wav");
 		roots.put(ClipName.BUTTON_EXIT, "Salir-Boton.wav");
+		roots.put(ClipName.PLAYER_DIED, "Player-Died.wav");
+		roots.put(ClipName.PLAYER_WON, "Player-Won.wav");
+		roots.put(ClipName.FOOTSTEPS_LEVEL3, "Nivel3-Footsteps.wav");
+		roots.put(ClipName.MUSIC_LEVEL3, "Nivel3-Music.wav");
+		roots.put(ClipName.MUSIC_LEVEL2, "Nivel2-Music.wav");
+		roots.put(ClipName.MUSIC_LEVEL1, "Nivel1-Music.wav");
+		roots.put(ClipName.SOUND_EFFECT_BUNUS, "Bonus-SoundEffect.wav");
+		roots.put(ClipName.SOUND_EFFECT_PRINCESS, "Princess-SoundEffect.wav");
+		
+		roots.put(ClipName.VOCAL_OH, "Vocal-oh.wav");
+		roots.put(ClipName.MONSTER_DIED, "Nivel1-Monster-Died.wav");
 	}
 	
 	private static String getRoot(ClipName name){

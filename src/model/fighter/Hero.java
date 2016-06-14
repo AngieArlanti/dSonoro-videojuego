@@ -1,5 +1,7 @@
 package model.fighter;
 
+import sound.ClipName;
+import sound.SoundManager;
 import model.board.Content;
 import model.fighter.level.Level;
 
@@ -83,6 +85,14 @@ public class Hero implements Fighter {
 	@Override
 	public void injured(int value) {
 		fighter.injured(value);
+		SoundManager.play(ClipName.VOCAL_OH);
+		if(!isAlive()){
+			SoundManager.stopSounds();
+			SoundManager.play(ClipName.PLAYER_DIED);
+			SoundManager.play(ClipName.MENU);
+		}
+		
+		
 	}
 	
 	@Override

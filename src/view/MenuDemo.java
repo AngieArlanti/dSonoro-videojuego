@@ -68,8 +68,7 @@ public class MenuDemo {
 
 		level3Button = new JButton("");
 		level3Button.setIcon(new ImageIcon(MenuDemo.class.getResource("/others/prueba3.png")));
-		level3Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL3,
-				GameLevel3.class, Levels.HEAVEN));		
+		level3Button.addMouseListener(getMouseListener(ClipName.BUTTON_LEVEL3,GameLevel3.class, Levels.HEAVEN));		
 		
 		GroupLayout gl_controlPanel_1 = new GroupLayout(controlPanel_1);
 		gl_controlPanel_1.setHorizontalGroup(
@@ -145,6 +144,21 @@ public class MenuDemo {
 						mainWindow.setVisible(true);
 						mainFrame.setVisible(false);
 						SoundManager.stopSounds();
+						switch (level) {
+						
+						case HELL:
+							SoundManager.play(ClipName.MUSIC_LEVEL1);
+							break;
+						case PURGATORY:
+							SoundManager.play(ClipName.MUSIC_LEVEL2);
+							break;
+						case HEAVEN:
+							SoundManager.play(ClipName.MUSIC_LEVEL3);							
+							break;
+						default:
+							break;
+						}
+						
 					} catch (InstantiationException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
