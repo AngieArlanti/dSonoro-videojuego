@@ -4,6 +4,9 @@ import java.awt.Point;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+
+import sound.ClipName;
+import sound.SoundManager;
 import model.board.Board;
 import model.board.Content;
 import model.element.*;
@@ -121,5 +124,11 @@ public class GameLevel2 extends Board { //TODO rearrange board
 			if (!it.next().isAlive())
 				it.remove();
 		}
+	}
+
+	@Override
+	protected void playFootsteps() {
+		SoundManager.play(ClipName.FOOTSTEPS_LEVEL3);
+		
 	}
 }

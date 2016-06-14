@@ -1,5 +1,8 @@
 package model.board;
 
+import sound.ClipName;
+import sound.SoundManager;
+import model.element.Blood;
 import model.fighter.Fighter;
 
 public class Cell {
@@ -46,6 +49,7 @@ public class Cell {
 	public void onWalk(Fighter hero){
 		if (content != null) {
 			content = content.interact(hero);
+			
 		} else {
 			content = hero;
 		}

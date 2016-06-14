@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 
 import model.Game;
 import model.board.Cell;
+import sound.ClipName;
+import sound.SoundManager;
 import view.ImageManager;
 
 public class GamePanel extends JPanel {
@@ -102,8 +104,11 @@ public class GamePanel extends JPanel {
 			Graphics2D string= (Graphics2D) g;
 			if (game.playerWon()) {
 //				string.setBackground(Color.RED);
+				SoundManager.stopSounds();
+				SoundManager.play(ClipName.PLAYER_WON);
 				string.setColor(Color.BLUE);
 				string.drawString("Game Over - Player WON !!!", 10, 140);
+				
 			} else {
 //				string.setBackground(Color.RED);
 				string.setColor(Color.RED);

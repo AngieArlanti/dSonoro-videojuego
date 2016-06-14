@@ -1,5 +1,7 @@
 package model.fighter;
 
+import sound.ClipName;
+import sound.SoundManager;
 import model.board.Content;
 import model.fighter.level.Level;
 
@@ -111,7 +113,7 @@ public class FighterBase implements Fighter {
 
 	@Override
 	public void stronger(int value) {
-		
+		SoundManager.play(ClipName.SOUND_EFFECT_BUNUS);
 		strength+=value;		
 	}
 	
@@ -132,6 +134,7 @@ public class FighterBase implements Fighter {
 			hero.addExperience(getLevel().getValue());
 			return null;
 		}
+		
 		return this;
 	}
 }

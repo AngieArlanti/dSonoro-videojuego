@@ -88,14 +88,18 @@ public abstract class Board {
 	private void alertHeroMove() {
 		for(ListenerHeroMove element:listenersHeroMove){
 			element.actionHeroMove();
+			playFootsteps();
 		}
 
 	}
+	protected abstract void playFootsteps();
+
 	private void cleanFog(Point p){ //TODO tip: we could have fog and heavy fog(two or 3 movements to be removed) 
 		for (int i = p.y-1; i <= p.y+1; i++) { //just usefull for one level (ideally level 2)
 			for (int j = p.x-1; j <= p.x+1 ; j++) {
 				if (i>=0 && i<SIZE && j>=0 && j<SIZE) {
 					if (g[i][j].hasFog()) {
+						
 						g[i][j].removeFog();
 						getHero().heal(getHero().getLevel().getValue());
 					}
