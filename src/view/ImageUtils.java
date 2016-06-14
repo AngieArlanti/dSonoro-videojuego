@@ -36,7 +36,7 @@ public class ImageUtils {
 	}
 
 	public static Image overlap(Image image1, Image image2) {
-		BufferedImage result = new BufferedImage(image1.getWidth(null), image1.getHeight(null),
+		BufferedImage result = new BufferedImage(image1.getWidth(null),image1.getHeight(null),
 				BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = (Graphics2D) result.getGraphics();
 		g.drawImage(image1, 0, 0, null);

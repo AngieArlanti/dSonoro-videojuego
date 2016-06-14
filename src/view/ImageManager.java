@@ -5,6 +5,8 @@ import java.awt.Image;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.ImageIcon;
+
 import model.board.Cell;
 import model.board.Content;
 import model.board.level.Levels;
@@ -24,58 +26,57 @@ public class ImageManager {
 		try{
 			switch (level) {
 			case HELL:
-				images.put(Hero.class.getName(), ImageUtils.loadImage("resources/person/guy/guy1.gif"));
-				images.put(Cell.class.getName(), ImageUtils.loadImage("resources/hell/floor.png"));
-				images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
-				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/hell/monster/Arch.gif"));
-				images.put(Blood.class.getName(), ImageUtils.loadImage("resources/items/EchoHerbs.gif"));
-				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/hell/monster/Bomb.gif"));
-				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/hell/monster/Behemoth.gif"));
-				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));
-				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/hell/wall.gif"));
-				images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
-				images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/items/Hi-Potion.gif"));
-				images.put(StrengthBonus.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));				
-				images.put(HeroArmor.class.getName(), ImageUtils.loadImage("resources/person/guy/power1.gif"));
-				images.put(HeroSword.class.getName(), ImageUtils.loadImage("resources/person/guy/power1.gif"));
-				images.put(Armor.class.getName(), ImageUtils.loadImage("resources/items/MythrilShield.gif"));
+				images.put(Hero.class.getName(), new ImageIcon(ImageManager.class.getResource("/person/guy/guy1.gif")).getImage());
+				images.put(Cell.class.getName(), new ImageIcon(ImageManager.class.getResource("/hell/floor.png")).getImage());
+				images.put("FOG", new ImageIcon(ImageManager.class.getResource("/fog.png")).getImage());
+				images.put(Golem.class.getName(), new ImageIcon(ImageManager.class.getResource("/hell/monster/Arch.gif")).getImage());
+				images.put(Blood.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/EchoHerbs.gif")).getImage());
+				images.put(Goblin.class.getName(), new ImageIcon(ImageManager.class.getResource("/hell/monster/Bomb.gif")).getImage());
+				images.put(Snake.class.getName(), new ImageIcon(ImageManager.class.getResource("/hell/monster/Behemoth.gif")).getImage());
+				images.put(Sword.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/Excalibur.gif")).getImage());
+				images.put(Wall.class.getName(), new ImageIcon(ImageManager.class.getResource("/hell/wall.gif")).getImage());
+				images.put(HealthBonus.class.getName(), new ImageIcon(ImageManager.class.getResource("/healthbonus.png")).getImage());
+				images.put(HealthPotion.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/Hi-Potion.gif")).getImage());
+				images.put(StrengthBonus.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/Excalibur.gif")).getImage());				
+				images.put(HeroArmor.class.getName(), new ImageIcon(ImageManager.class.getResource("/person/guy/power1.gif")).getImage());
+				images.put(HeroSword.class.getName(), new ImageIcon(ImageManager.class.getResource("/person/guy/power1.gif")).getImage());
+				images.put(Armor.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/MythrilShield.gif")).getImage());
 				break;
 			case PURGATORY:
-				images.put(Hero.class.getName(), ImageUtils.loadImage("resources/person/guy/guy2.gif"));
-				images.put(Cell.class.getName(), ImageUtils.loadImage("resources/purgatory/floor.png"));
-				images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
-				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/purgatory/enemies/ira.gif"));
-				images.put(Blood.class.getName(), ImageUtils.loadImage("resources/items/EchoHerbs.gif"));
-				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/purgatory/enemies/avaricia.gif"));
-				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/purgatory/enemies/gula.gif"));
-				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));
-				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/purgatory/wall.gif"));
-				images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
-				images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/items/Hi-Potion.gif"));
-				images.put(StrengthBonus.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));
-				images.put(HeroArmor.class.getName(), ImageUtils.loadImage("resources/person/guy/power2.gif"));
-				images.put(HeroSword.class.getName(), ImageUtils.loadImage("resources/person/guy/power2.gif"));
-				images.put(Armor.class.getName(), ImageUtils.loadImage("resources/items/MythrilShield.gif"));			
+				images.put(Hero.class.getName(), new ImageIcon(ImageManager.class.getResource("/person/guy/guy2.gif")).getImage());
+				images.put(Cell.class.getName(), new ImageIcon(ImageManager.class.getResource("/purgatory/floor.png")).getImage());
+				images.put("FOG", new ImageIcon(ImageManager.class.getResource("/fog.png")).getImage());
+				images.put(Golem.class.getName(), new ImageIcon(ImageManager.class.getResource("/purgatory/enemies/ira.gif")).getImage());
+				images.put(Blood.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/EchoHerbs.gif")).getImage());
+				images.put(Goblin.class.getName(), new ImageIcon(ImageManager.class.getResource("/purgatory/enemies/avaricia.gif")).getImage());
+				images.put(Snake.class.getName(), new ImageIcon(ImageManager.class.getResource("/purgatory/enemies/gula.gif")).getImage());
+				images.put(Sword.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/Excalibur.gif")).getImage());
+				images.put(Wall.class.getName(), new ImageIcon(ImageManager.class.getResource("/purgatory/wall.gif")).getImage());
+				images.put(HealthBonus.class.getName(), new ImageIcon(ImageManager.class.getResource("/healthbonus.png")).getImage());
+				images.put(HealthPotion.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/Hi-Potion.gif")).getImage());
+				images.put(StrengthBonus.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/Excalibur.gif")).getImage());
+				images.put(HeroArmor.class.getName(), new ImageIcon(ImageManager.class.getResource("/person/guy/power2.gif")).getImage());
+				images.put(HeroSword.class.getName(), new ImageIcon(ImageManager.class.getResource("/person/guy/power2.gif")).getImage());
+				images.put(Armor.class.getName(), new ImageIcon(ImageManager.class.getResource("/items/MythrilShield.gif")).getImage());				
 				break;
 			case HEAVEN:
-				images.put(Hero.class.getName(), ImageUtils.loadImage("resources/person/guy/guy3.gif"));
-				images.put(Cell.class.getName(), ImageUtils.loadImage("resources/heaven/floor.png"));
-				images.put("FOG", ImageUtils.loadImage("resources/fog.png"));
-				images.put(Golem.class.getName(), ImageUtils.loadImage("resources/heaven/enemies/Dragoon.gif"));
-				images.put(Blood.class.getName(), ImageUtils.loadImage("resources/items/EchoHerbs.gif"));
-				images.put(Goblin.class.getName(), ImageUtils.loadImage("resources/heaven/enemies/Rapha.gif"));
-				images.put(Snake.class.getName(), ImageUtils.loadImage("resources/heaven/enemies/DarkKnight.gif"));
-				images.put(Sword.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));
-				images.put(Wall.class.getName(), ImageUtils.loadImage("resources/heaven/wall.gif"));
-				images.put(HealthBonus.class.getName(), ImageUtils.loadImage("resources/healthbonus.png"));
-				images.put(HealthPotion.class.getName(), ImageUtils.loadImage("resources/items/Hi-Potion.gif"));
-				images.put(StrengthBonus.class.getName(), ImageUtils.loadImage("resources/items/Excalibur.gif"));
-				images.put(HeroArmor.class.getName(), ImageUtils.loadImage("resources/person/guy/power3.gif"));
-				images.put(HeroSword.class.getName(), ImageUtils.loadImage("resources/person/guy/power3.gif"));
-				images.put(Armor.class.getName(), ImageUtils.loadImage("resources/armor.png"));
-				images.put(Victim.class.getName(), ImageUtils.loadImage("resources/heaven/victim/victim1.gif"));
-				images.put(Person.class.getName(), ImageUtils.loadImage("resources/heaven/victim/victimA.gif"));
-
+				images.put(Hero.class.getName(),  new ImageIcon(ImageManager.class.getResource("/person/guy/guy3.gif")).getImage());
+				images.put(Cell.class.getName(),  new ImageIcon(ImageManager.class.getResource("/heaven/floor.png")).getImage());
+				images.put("FOG",  new ImageIcon(ImageManager.class.getResource("/fog.png")).getImage());
+				images.put(Golem.class.getName(),  new ImageIcon(ImageManager.class.getResource("/heaven/enemies/Dragoon.gif")).getImage());
+				images.put(Blood.class.getName(),  new ImageIcon(ImageManager.class.getResource("/items/EchoHerbs.gif")).getImage());
+				images.put(Goblin.class.getName(),  new ImageIcon(ImageManager.class.getResource("/heaven/enemies/Rapha.gif")).getImage());
+				images.put(Snake.class.getName(),  new ImageIcon(ImageManager.class.getResource("/heaven/enemies/DarkKnight.gif")).getImage());
+				images.put(Sword.class.getName(),  new ImageIcon(ImageManager.class.getResource("/items/Excalibur.gif")).getImage());
+				images.put(Wall.class.getName(),  new ImageIcon(ImageManager.class.getResource("/heaven/wall.gif")).getImage());
+				images.put(HealthBonus.class.getName(),  new ImageIcon(ImageManager.class.getResource("/healthbonus.png")).getImage());
+				images.put(HealthPotion.class.getName(),  new ImageIcon(ImageManager.class.getResource("/items/Hi-Potion.gif")).getImage());
+				images.put(StrengthBonus.class.getName(),  new ImageIcon(ImageManager.class.getResource("/items/Excalibur.gif")).getImage());
+				images.put(HeroArmor.class.getName(),  new ImageIcon(ImageManager.class.getResource("/person/guy/power3.gif")).getImage());
+				images.put(HeroSword.class.getName(),  new ImageIcon(ImageManager.class.getResource("/person/guy/power3.gif")).getImage());
+				images.put(Armor.class.getName(),  new ImageIcon(ImageManager.class.getResource("/armor.png")).getImage());
+				images.put(Victim.class.getName(),  new ImageIcon(ImageManager.class.getResource("/heaven/victim/victim1.gif")).getImage());
+				images.put(Person.class.getName(),  new ImageIcon(ImageManager.class.getResource("/heaven/victim/victimA.gif")).getImage());
 				break;
 
 			}
