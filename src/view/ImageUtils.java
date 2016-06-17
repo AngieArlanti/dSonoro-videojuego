@@ -13,7 +13,8 @@ import javax.imageio.ImageIO;
 
 public class ImageUtils {
 
-	public static Image loadImage(String fileName) throws IOException {
+	public static Image sa(String fileName) throws IOException {
+		System.out.println("called by: " + fileName);
 		InputStream stream = ClassLoader.getSystemResourceAsStream(fileName);
 		if (stream == null) {	
 			return ImageIO.read(new File(fileName)); 
